@@ -118,7 +118,7 @@ Set these at the **project** level in your recipe `import.yaml` as a value store
 | `API_URL` | `REACT_APP_API_URL` (prod-client build), `WASP_SERVER_URL` (prod-api) | Public API URL (port 3001) |
 | `APP_URL` | `WASP_WEB_CLIENT_URL` (prod-api) | Public SPA URL (hostname `app`) |
 
-Do not set `envVariables` on individual services in `import.yaml` — that key is project-level only.
+Keep them at the project level, because both services read them. `envVariables` on a single service in `import.yaml` are kept as well, but only that service sees them.
 
 Demo login (seeded on deploy): **username** `demo`, **password** `demo-zerops1`. The home page requires auth; unauthenticated users are redirected to `/login`.
 
