@@ -53,6 +53,7 @@ zerops:
         - node_modules
 
     deploy:
+      # Wasp's built-in liveness endpoint.
       readinessCheck:
         httpGet:
           port: 3001
@@ -70,6 +71,7 @@ zerops:
           httpSupport: true
       envVariables:
         NODE_ENV: production
+        # Required by Wasp in production, no default.
         PORT: 3001
         DATABASE_URL: postgresql://${db_user}:${db_password}@${db_hostname}:${db_port}/${db_dbName}
         APP_DB_NAME: ${db_dbName}
